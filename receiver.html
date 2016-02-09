@@ -121,12 +121,13 @@ limitations under the License.
         window.messageBus.onMessage = function(event) {
           console.log('Message [' + event.senderId + ']: ' + event.data);
           // display the message from the sender
-		  var sentMessage = JSON.parse(event.data);
-		if(sentMessage.command == 'message'){
-			displayText(sentMessage.payload);
-			window.messageBus.send(event.senderId, sentMessage.payload);
-		}
-      }
+		  displayText(event.data);
+//		  var sentMessage = JSON.parse(event.data);
+//		if(sentMessage.command == 'message'){
+//			displayText(sentMessage.payload);
+//			window.messageBus.send(event.senderId, sentMessage.payload);
+//		}
+      } 
           // inform all senders on the CastMessageBus of the incoming message event
           // sender message listener will be invoked
           window.messageBus.send(event.senderId, event.data);
