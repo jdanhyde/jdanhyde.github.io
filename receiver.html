@@ -122,7 +122,7 @@ limitations under the License.
           console.log('Message [' + event.senderId + ']: ' + event.data);
           // display the message from the sender
 		  var sentMessage = JSON.parse(event.data);
-		if(sentMessage.command == 'MESSAGE'){
+		if(sentMessage.command == 'message'){
 			displayText(sentMessage.payload);
 			window.messageBus.send(event.senderId, sentMessage.payload);
 		}
